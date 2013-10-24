@@ -166,7 +166,7 @@ class fBot(object):
             host = chat_line.split(" ")[ 0 ].split("@")[ 1 ]
 
             #Extract the message of the sender.
-            self.msg = chat_line.split(":")[ 2 ].replace(':', '').replace('\r\n', '')
+            self.msg = chat_line.split(":", 2)[ 2 ].replace('\r\n', '')
 
             #Try to get a parameter if possible.
             try:
@@ -190,10 +190,6 @@ class fBot(object):
             if '\x01ACTION' in print_message:
                 action = print_message.replace('\x01ACTION', '')
                 print '* %s%s' % (nick, action)
-            #If there's a link, replace it with [LINK]
-            elif 'http' in print_message:
-                print_message = '[LINK]'
-                print '%s: %s' % (nick, print_message)
             #If a nick change happens, put it into readable form.
             elif get[1] == 'NICK':
                 print "%s is now called %s!" % (nick, print_message)
