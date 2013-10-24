@@ -11,6 +11,7 @@ bot.debug_msg(1, '%s initialized on %s' % (bot.nick, bot.net))
 
 boys = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz']
 girls = ['Caroline', 'Luna']
+orientation = 'gay'
 while 1:
     message, parameter, nick, host = bot.react('')
 
@@ -59,14 +60,36 @@ while 1:
     if bot.get_action('hugs %s' % (bot.nick)):
         actionType = 'tightly', 'lightly', 'for a long time', 'quickly', 'softly', 'firmly'
         bot.action('hugs %s %s.' % (nick, random.choice(actionType)))
+        
+    if bot.get_action('!!orientation'):
+        if orientation == 'gay':
+            bot.message("I'm into girls!")
+        elif orientation == 'straight':
+            bot.message("I'm into boys!")
+        
+    if bot.get_action('!!gay'):
+        orientation = 'gay'
+        bot.message("I'm into girls now!")
+    
+    if bot.get_action('!!straight'):
+        orientation = 'straight'
+        bot.message("I'm into boys now!")
 
     if bot.get_action('kisses %s' % (bot.nick)):
-        if nick in boys:
-            bot.action('kisses %s' % (nick))
-        elif nick in girls:
-            bot.action('feels confused, but kisses %s like a friend' % (nick))
-        else:
-            bot.message('%s: Do I even know you? :/' % (nick))
+        if orientation == 'straight'
+            if nick in boys:
+                bot.action('kisses %s' % (nick))
+            elif nick in girls:
+                bot.action('feels confused, but kisses %s like a friend' % (nick))
+            else:
+                bot.message('%s: Do I even know you? :/' % (nick))
+        elif orientation == 'gay'
+            if nick in boys:
+                bot.action('feels confused, but kisses %s like a friend' % (nick))
+            elif nick in girls:
+                bot.action('kisses %s' % (nick))
+            else:
+                bot.message('%s: Do I even know you? :/' % (nick))
 
     if bot.get_action('kicks %s' % (bot.nick)):
         actionType = 'roundhouse-kicks', 'punches', 'kicks', 'headbutts', 'wrestles'
