@@ -4,7 +4,7 @@ import random
 version = 0.8
 
 bot = fBot('Cassandra', 'michcioperz.Users.AfterNET.Org')
-bot.debug(0)
+bot.debug('PARAM')
 bot.init('irc.afternet.org')
 
 bot.debug_msg(1, '%s initialized on %s' % (bot.nick, bot.net))
