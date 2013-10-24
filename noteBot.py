@@ -14,10 +14,13 @@ girls = ['Caroline', 'Luna']
 while 1:
     message, parameter, nick, host = bot.react('')
 
-    if bot.get_action('murders %s' % (bot.nick)):
+    if bot.get_action('murders'):
         bot.message("%s: Don't be silly, my dear friend" % (nick))
 
-    if bot.get_action('kills %s' % (bot.nick)):
+    if bot.get_action('brutally beats'):
+        bot.message("%s: Don't be silly, my dear friend" % (nick))
+        
+    if bot.get_action('kills'):
         bot.message("%s: Don't be silly, my dear friend" % (nick))
 
     if bot.command('Hi %s' % (bot.nick)):
