@@ -76,14 +76,14 @@ while 1:
         bot.message("I'm into boys now!")
 
     if bot.get_action('kisses %s' % (bot.nick)):
-        if orientation == 'straight'
+        if orientation == 'straight':
             if nick in boys:
                 bot.action('kisses %s' % (nick))
             elif nick in girls:
                 bot.action('feels confused, but kisses %s like a friend' % (nick))
             else:
                 bot.message('%s: Do I even know you? :/' % (nick))
-        elif orientation == 'gay'
+        elif orientation == 'gay':
             if nick in boys:
                 bot.action('feels confused, but kisses %s like a friend' % (nick))
             elif nick in girls:
