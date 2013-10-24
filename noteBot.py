@@ -11,7 +11,7 @@ bot.debug_msg(1, '%s initialized on %s' % (bot.nick, bot.net))
 
 boys = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz']
 girls = ['Caroline', 'Luna']
-orientation = 'gay'
+orientation = 'straight'
 while 1:
     message, parameter, nick, host = bot.react('')
 
@@ -61,17 +61,17 @@ while 1:
         actionType = 'tightly', 'lightly', 'for a long time', 'quickly', 'softly', 'firmly'
         bot.action('hugs %s %s.' % (nick, random.choice(actionType)))
         
-    if bot.get_action('!!orientation'):
+    if bot.command('!!orientation'):
         if orientation == 'gay':
             bot.message("I'm into girls!")
         elif orientation == 'straight':
             bot.message("I'm into boys!")
         
-    if bot.get_action('!!gay'):
+    if bot.command('!!set orientation ==', 1):
         orientation = 'gay'
         bot.message("I'm into girls now!")
     
-    if bot.get_action('!!straight'):
+    if bot.command('!!set orientation !=',1):
         orientation = 'straight'
         bot.message("I'm into boys now!")
 
