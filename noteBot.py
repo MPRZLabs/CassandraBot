@@ -11,7 +11,7 @@ bot.debug_msg(1, '%s initialized on %s' % (bot.nick, bot.net))
 
 #greetingDone = 0
 friends = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz', 'Caroline', 'Luna']
-morethan
+morethan = ['antobot']
 while 1:
     message, parameter, nick, host = bot.react('')
 
