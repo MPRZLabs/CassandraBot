@@ -96,8 +96,14 @@ while 1:
         bot.message('I am %s v%.1f running on top of the fBot framework v%.1f by Folis.' % (bot.nick, version, bot.version))
         
     if bot.get_action('hugs %s' % (bot.nick)):
-        actionType = 'tightly', 'lightly', 'for a long time', 'quickly', 'softly', 'firmly'
-        bot.action('hugs %s %s.' % (nick, random.choice(actionType)))
+        if nick in morethan:
+            actionType = 'tightly', 'for a long time', 'firmly'
+            bot.action('hugs %s %s.' % (nick, random.choice(actionType)))
+        elif nick in friends:
+            actionType = 'lightly', 'quickly', 'softly'
+            bot.action('hugs %s %s.' % (nick, random.choice(actionType)))
+        elif nick in taken:
+            bot.action('kindly asks %s to stop.' % (nick))
 
     if bot.get_action('kisses %s' % (bot.nick)):
         if nick in morethan:
