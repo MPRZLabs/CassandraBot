@@ -10,7 +10,8 @@ bot.init('irc.afternet.org')
 bot.debug_msg(1, '%s initialized on %s' % (bot.nick, bot.net))
 
 #greetingDone = 0
-friends = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz', 'Caroline', 'Luna']
+taken = ['MrGame64', 'bluefoxgs', 'MarcoSpiess']
+friends = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz', 'Caroline', 'Luna','terrabyte_aura']
 morethan = ['antobot']
 while 1:
     message, parameter, nick, host = bot.react('')
@@ -103,5 +104,7 @@ while 1:
             bot.action('kisses %s %s' % (nick, random.choice(['like there\'s no tomorrow','for a long time'])))
         elif nick in friends:
             bot.action('kisses %s %s' % (nick, random.choice(['like a friend','friendly','on the cheek'])))
+        elif nick in taken:
+            bot.message('%s: Nah, I can\'t do it to her.' % (nick))
         else:
             bot.message('%s: I think I don\'t know you... yet ;)' % (nick))
