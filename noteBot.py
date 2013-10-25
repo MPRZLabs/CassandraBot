@@ -64,8 +64,8 @@ while 1:
 
     if bot.get_action('kisses %s' % (bot.nick)):
         if nick in morethan:
-            bot.action('kisses %s %s' % (nick, random.choice('like there\'s no tomorrow','for a long time')))
+            bot.action('kisses %s %s' % (nick, random.choice(['like there\'s no tomorrow','for a long time'])))
         elif nick in friends:
-            bot.action('kisses %s %s' % (nick, random.choice('like a friend','friendly','on the cheek')))
+            bot.action('kisses %s %s' % (nick, random.choice(['like a friend','friendly','on the cheek'])))
         else:
             bot.message('%s: I think I don\'t know you... yet ;)' % (nick))
