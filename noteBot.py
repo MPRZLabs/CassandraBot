@@ -23,7 +23,7 @@ while 1:
     if bot.get_action('murders') or bot.get_action('kills') or bot.get_action('brutally beats') or bot.get_action('beats') or bot.get_action('punches') or bot.get_action('kicks'):
         bot.message("%s: Make love, not war, honey" % (nick))
 
-    if bot.command('Hi %s' % (bot.nick)):
+    if bot.command('hi %s' % (bot.nick)) or bot.command('hello %s' % (bot.nick)):
         bot.message('Hi %s! :*' % (nick))
     
     if bot.command('!!AreYouSure'):
