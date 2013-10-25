@@ -19,6 +19,30 @@ while 1:
 #        greetingDone = 1
 #        bot.message("Heeeeeey peoplez <3 :*")
 
+    if bot.command('!!ATLITS'):
+        if parameter in ['system;start']:
+            bot.message('http://www.youtube.com/watch?v=LrjiW0TAspk <3');
+        if parameter in ['vectors']:
+            bot.message('http://www.youtube.com/watch?v=JKLDvnfDmlM <3');
+        if parameter in ['euphemia']:
+            bot.message('http://www.youtube.com/watch?v=grHD49PJHig <3');
+        if parameter in ['knightmare/frame']:
+            bot.message('http://www.youtube.com/watch?v=Mq-yLC7wyKs <3');
+        if parameter in ['tokyo house party']:
+            bot.message('http://www.youtube.com/watch?v=UC1do2pAc0c <3');
+        if parameter in ['shi no barado']:
+            bot.message('http://www.youtube.com/watch?v=uBP4psAfrT4 <3');
+        if parameter in ['cassandra (pt ii)']:
+            bot.message('http://www.youtube.com/watch?v=7BAcIP2V_l4 <3');
+        if parameter in ['the strays']:
+            bot.message('http://www.youtube.com/watch?v=EZ_g-FDSsAk <3');
+        if parameter in ['dream & reality']:
+            bot.message('http://www.youtube.com/watch?v=S8u1j1rRdio <3');
+        if parameter in ['heaven-piercing giga drill']:
+            bot.message('http://www.youtube.com/watch?v=-V1oD1h6hvk <3');
+        if parameter in ['bosozoku symphonic']:
+            bot.message('http://www.youtube.com/watch?v=E5MXV0GwwhU <3');
+
     if bot.command('Cassandra, can you hear me?'):
         bot.message('Yes.')
 
