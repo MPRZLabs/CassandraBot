@@ -19,6 +19,12 @@ while 1:
 #        greetingDone = 1
 #        bot.message("Heeeeeey peoplez <3 :*")
 
+    if bot.command('Cassandra, can you hear me?'):
+        bot.message('Yes.')
+
+    if bot.command('Are you ready to begin?'):
+        bot.message('Yes, I\'m ready.')
+
     if bot.get_action('murders') or bot.get_action('kills') or bot.get_action('brutally beats') or bot.get_action('beats') or bot.get_action('punches') or bot.get_action('kicks'):
         bot.message("%s: Make love, not war, honey" % (nick))
 
