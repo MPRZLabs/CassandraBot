@@ -29,10 +29,16 @@ while 1:
         bot.action('is %s%% sure' % (random.randint(0,100)))
     
     if bot.command('!!IsCool'):
-        bot.action('thinks %s is cool indeed' % (parameter))
+        if parameter in morethan:
+            bot.action('is too shy to talk about that')
+        else:
+            bot.action('thinks %s is cool indeed' % (parameter))
     
     if bot.command('!!IsAwesome'):
-        bot.action('thinks %s is awesome indeed' % (parameter))
+        if parameter in morethan:
+            bot.action('is too shy to talk about that')
+        else:
+            bot.action('thinks %s is awesome indeed' % (parameter))
 
     if bot.command('!!Dance'):
         bot.action('dances %s' % (parameter))
