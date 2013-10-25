@@ -93,19 +93,23 @@ class fBot(object):
 
     #Sends a message to the channel the bot is in.
     def message(self, Message):
+        self.info_msg('%s: %s' % (self.nick, Message))
         self.query('PRIVMSG #GamedevTeam :%s\r\n' % (Message))
 
     #Sends a private message to the specified user.
     def privmsg(self, Nick, Message):
+        self.info_msg('%s->%s: %s' % (self.nick, Nick, Message))
         self.query('PRIVMSG %s :%s\r\n' % (Nick, Message))
 
     #Renames the bot to a certain name.
     #The command works like this: fNick <NewNickname>
     def rename(self, Nick):
+        self.info_msg('%s is now to be called %s!' % (self.nick, Nick))
         self.query('NICK :%s\r\n' % (Nick))
 
     #Sends a /me action to the channel.
     def action(self, Action):
+        self.info_msg('%s %s' % (self.nick, Action))
         self.message('\x01ACTION %s\x01' % (Action))
 
     #Reads the chat log line by line, and splits it
