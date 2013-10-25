@@ -16,7 +16,7 @@ orientation = 'straight'
 while 1:
     message, parameter, nick, host = bot.react('')
 
-    if greetingDone -lt 1:
+    if greetingDone != 1:
         greetingDone = 1
         bot.message("Heeeeeey peoplez <3 :*")
 
