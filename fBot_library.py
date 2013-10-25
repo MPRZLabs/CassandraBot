@@ -2,10 +2,15 @@
 #Check out the comments to see what everything does!
 
 #Import, duh.
-import socket, string, time
+import socket, string, time,logging
+logging.basicConfig(format='%(asctime)s %(message)s',filename='ircass.log',level=logging.INFO)
 
 #Create the fBot class
 class fBot(object):
+
+    def info_msg(self, Message):
+        print ('%s%s' % (Message,'\n'))
+        logging.info(Message)
 
     #This is what happens when the class is first called.
     #You may pass 2 values: The name of the bot, and it's boss.
@@ -24,7 +29,7 @@ class fBot(object):
 
         #Displaying a message to notify
         #the user that *something* is happening.
-        print 'Loading. Please be patient.\n'
+        self.info_msg('Loading. Please be patient.')
 
     #My self written initialization. Normally, you only
     #need to pass 1 value: The network. You can also
@@ -64,12 +69,7 @@ class fBot(object):
     #value is equal or greater than it's rating.
     #If you pass PARAM, you only get the parameters, though!
     def debug_msg(self, Rating, Message):
-        if not self.print_debug == 4:
-            if self.print_debug >= Rating:
-                print "DEBUG (Rating: %s) - %s" % (Rating, Message)
-        else:
-            if self.print_debug == Rating:
-                print "DEBUG (Rating: %s) - %s" % (Rating, Message)
+        logging.debug(Message)
 
     #Makes the bot quit the channel with a certain message. Looks like this:
     # "fBot has left the channel (Quit: ExitMessage)"
@@ -85,7 +85,7 @@ class fBot(object):
 
         #Joining and showing the chat log header.
         self.s.send('JOIN :%s\r\n' % (self.chan))
-        print '\r\n############ CHAT LOG ############\r\n'
+        self.info_msg('\r\n############ CHAT LOG ############\r\n')
 
     #Send a raw command to the socket.
     def query(self, Query):
@@ -113,9 +113,10 @@ class fBot(object):
     #You can get those with line[i]. It splits when-
     #ever it finds an "empty character". (Space).
     def parse_messages(self):
-        self.read = self.read + self.s.recv(1024) 
+        self.read = self.read + self.s.recv(1024)
         temp = string.split(self.read, '\n')
         self.read = temp.pop( )
+        self.debug_msg(4,self.read)
 
         for line in temp:
             line = string.rstrip(line)
@@ -189,13 +190,13 @@ class fBot(object):
             #If you find a /me action, format it into a readable text.
             if '\x01ACTION' in print_message:
                 action = print_message.replace('\x01ACTION', '')
-                print '* %s%s' % (nick, action)
+                self.info_msg('* %s%s' % (nick, action))
             #If a nick change happens, put it into readable form.
             elif get[1] == 'NICK':
-                print "%s is now called %s!" % (nick, print_message)
+                self.info_msg("%s is now called %s!" % (nick, print_message))
             else:
                 #Otherwise just print what the person said.
-                print "%s: %s" % (nick, print_message)
+                self.info_msg("%s: %s" % (nick, print_message))
                 
             #If debug is PARAM, show what the possible parameter is.
             self.debug_msg(4, "PARAMETER: %s" % parameter)

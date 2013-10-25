@@ -45,6 +45,9 @@ while 1:
     if bot.command('!!Talk', 1):
         bot.message(parameter)
 
+    if bot.command('!!Query', 1):
+        bot.query(parameter)
+
     if bot.command('!!Act', 1):
         bot.action(parameter)
 
