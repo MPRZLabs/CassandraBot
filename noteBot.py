@@ -9,11 +9,16 @@ bot.init('irc.afternet.org')
 
 bot.debug_msg(1, '%s initialized on %s' % (bot.nick, bot.net))
 
+greetingDone = 0
 boys = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz']
 girls = ['Caroline', 'Luna']
 orientation = 'straight'
 while 1:
     message, parameter, nick, host = bot.react('')
+
+    if greetingDone -lt 1:
+        greetingDone = 1
+        bot.message("Heeeeeey peoplez <3 :*")
 
     if bot.get_action('murders'):
         bot.message("%s: Don't be silly, my dear friend" % (nick))
