@@ -10,7 +10,7 @@ bot.init('irc.afternet.org')
 bot.debug_msg(1, '%s initialized on %s' % (bot.nick, bot.net))
 
 #greetingDone = 0
-boys = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz']
+boys = ['michcioperz', 'antonijn', 'antonjin', 'SuperHawksman', 'iandioch', 'Zanzlanz', 'antobot']
 girls = ['Caroline', 'Luna']
 orientation = 'straight'
 while 1:
@@ -20,14 +20,8 @@ while 1:
 #        greetingDone = 1
 #        bot.message("Heeeeeey peoplez <3 :*")
 
-    if bot.get_action('murders'):
-        bot.message("%s: Don't be silly, my dear friend" % (nick))
-
-    if bot.get_action('brutally beats'):
-        bot.message("%s: Don't be silly, my dear friend" % (nick))
-        
-    if bot.get_action('kills'):
-        bot.message("%s: Don't be silly, my dear friend" % (nick))
+    if bot.get_action('murders') or bot.get_action('kills') or bot.get_action('brutally beats') or bot.get_action('beats') or bot.get_action('punches') or bot.get_action('kicks'):
+        bot.message("%s: Make love, not war, honey" % (nick))
 
     if bot.command('Hi %s' % (bot.nick)):
         bot.message('Hi %s! :*' % (nick))
@@ -98,11 +92,3 @@ while 1:
                 bot.action('kisses %s' % (nick))
             else:
                 bot.message('%s: Do I even know you? :/' % (nick))
-
-    if bot.get_action('kicks %s' % (bot.nick)):
-        actionType = 'roundhouse-kicks', 'punches', 'kicks', 'headbutts', 'wrestles'
-        bot.action('%s %s.' % (random.choice(actionType), nick))
-
-    if bot.get_action('punches %s' % (bot.nick)):
-        actionType = 'roundhouse-kicks', 'punches', 'kicks', 'headbutts', 'wrestles'
-        bot.action('%s %s.' % (random.choice(actionType), nick))
