@@ -93,7 +93,7 @@ class fBot(object):
 
     #Sends a message to the channel the bot is in.
     def message(self, Message):
-        self.query('PRIVMSG %s :%s\r\n' % (self.chan, Message))
+        self.query('PRIVMSG #GamedevTeam :%s\r\n' % (Message))
 
     #Sends a private message to the specified user.
     def privmsg(self, Nick, Message):
